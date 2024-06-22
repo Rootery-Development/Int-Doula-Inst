@@ -25,12 +25,13 @@ export default function RootLayout({
   return (
     <ClerkProvider>
       <html lang="en">
-        <body>
+        <body className=''>
           <SignedOut>
             <SignInButton />
           </SignedOut>
           <SignedIn>
             <UserButton />
+            {/* This above will make the user pop up in all pages at all times above the body */}
           </SignedIn>
           {children}
         </body>
