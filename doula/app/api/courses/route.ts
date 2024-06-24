@@ -11,7 +11,7 @@ export async function POST(
     const { title } = await req.json();
 
     if (!userId) {
-      return NextResponse.json("Unauthorized", { status: 401 });
+      return new NextResponse("Unauthorized", { status: 401 });
     }
 
     const course = await db.course.create({
