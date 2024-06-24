@@ -3,7 +3,7 @@ import {
   createRouteMatcher
 } from '@clerk/nextjs/server';
 
-const isPublicRoute = createRouteMatcher([ '/test', '/sign-in(.*)', '/sign-up(.*)']);
+const isPublicRoute = createRouteMatcher([ '/api/uploadthing','/test', '/sign-in(.*)', '/sign-up(.*)']);
 // the test isn't working as intended , it will only redirect u to sign in
 export default clerkMiddleware((auth, request) => {
   if(!isPublicRoute(request)) {
