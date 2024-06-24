@@ -17,6 +17,7 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover"
+import { CommandList } from "cmdk"
 
 interface ComboboxProps {
   options: { label: string; value: string }[];
@@ -43,13 +44,14 @@ export const Combobox = ({
           {value
             ? options.find((option) => option.value === value)?.label
             : "Select option..."}
-          <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
+          <ChevronsUpDown className="ml-2 h-4 w-full shrink-0 opacity-50" />
         </Button>
       </PopoverTrigger>
       <PopoverContent className="w-full p-0">
         <Command>
           <CommandInput placeholder="Search option..." />
           <CommandEmpty>No option found.</CommandEmpty>
+          <CommandList>
           <CommandGroup>
             {options.map((option) => (
               <CommandItem
@@ -69,7 +71,21 @@ export const Combobox = ({
               </CommandItem>
             ))}
           </CommandGroup>
+          </CommandList>
         </Command>
+
+        <Command>
+    <CommandInput placeholder="Search" />
+    <CommandEmpty></CommandEmpty>
+    <CommandList>
+        <CommandGroup>
+                <CommandItem >
+                  
+                </CommandItem>
+        </CommandGroup>
+    </CommandList>
+</Command>
+
       </PopoverContent>
     </Popover>
   )
