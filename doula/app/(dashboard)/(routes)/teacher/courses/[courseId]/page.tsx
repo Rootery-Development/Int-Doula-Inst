@@ -10,8 +10,8 @@ import { DescriptionForm } from "./_components/description-form";
 import { ImageForm } from "./_components/image-form";
 import { CategoryForm } from "./_components/category-form";
 import PriceForm from "./_components/price-form";
-import ChaptersForm from "@/app/(dashboard)/_components/chapters-form";
-import { AttachmentForm } from "@/app/(dashboard)/_components/attachment-form";
+import { AttachmentForm } from "@/app/(dashboard)/(routes)/teacher/courses/[courseId]/_components/attachment-form";
+import ChaptersForm from "./_components/chapters-form";
 
 const CourseIdPage = async ({params}: {params: {courseId: string}}) => {
   const {userId} = auth();
@@ -25,6 +25,11 @@ const CourseIdPage = async ({params}: {params: {courseId: string}}) => {
       id: params.courseId,
     },
     include: {
+      chapters:{
+        orderBy: {
+          position: "asc"
+        }
+      },
       attachments: {
         orderBy: {
           createdAt: "desc"
@@ -49,6 +54,7 @@ const CourseIdPage = async ({params}: {params: {courseId: string}}) => {
     course.imageUrl,
     course.price,
     course.categoryId,
+    course.chapters.some(chapter => chapter.isPublished),
   ];
 
   const totalFeilds = requiredFeilds.length;
@@ -117,7 +123,7 @@ const CourseIdPage = async ({params}: {params: {courseId: string}}) => {
                 </h2>
               </div>
               <ChaptersForm
-                // initialData={course}
+                initialData={course}
                 courseId={course.id}
               />
             </div>

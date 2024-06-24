@@ -20,10 +20,12 @@ import {
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { Input } from "@/components/ui/input";
+import { Chapter, Course } from "@prisma/client";
+import { ChaptersList } from "./chapters-list";
 // import { ChaptersList } from "./chapters-list";
 
 interface ChaptersFormProps {
-//   initialData: Course & { chapters: Chapter[] };
+  initialData: Course & { chapters: Chapter[] };
   courseId: string;
 };
 
@@ -32,7 +34,7 @@ const formSchema = z.object({
 });
 
 export const ChaptersForm = ({
-//   initialData,
+  initialData,
   courseId
 }: ChaptersFormProps) => {
   const [isCreating, setIsCreating] = useState(false);
@@ -104,7 +106,7 @@ export const ChaptersForm = ({
           )}
         </Button>
       </div>
-      {/* {isCreating && (
+      {isCreating && (
         <Form {...form}>
           <form
             onSubmit={form.handleSubmit(onSubmit)}
@@ -153,7 +155,7 @@ export const ChaptersForm = ({
         <p className="text-xs text-muted-foreground mt-4">
           Drag and drop to reorder the chapters
         </p>
-      )} */}
+      )}
     </div>
   )
 }
