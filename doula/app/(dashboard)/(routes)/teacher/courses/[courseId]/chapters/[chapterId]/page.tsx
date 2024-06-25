@@ -11,7 +11,7 @@ import { ChapterDescriptionForm } from "./_components/chapter-description-form";
 import { ChapterVideoForm } from "./_components/chapter-video-form";
 import { ChapterAccessForm } from "./_components/chapter-access-form";
 import { ChapterActions } from "./_components/chapter-actions";
-// import { Banner } from "@/components/banner";
+import { Banner } from "@/components/banner";
 
 interface ChapterIdPageProps {
   params: {
@@ -58,11 +58,10 @@ const ChapterIdPage: React.FC<ChapterIdPageProps> = async ({ params }) => {
   return (
     <>
       {!chapter.isPublished && (
-        <div></div>
-        // <Banner
-        //   variant="warning"
-        //   label="This chapter is unpublished. It will not be visible in the course"
-        // />
+        <Banner
+          variant="warning"
+          label="This chapter is unpublished. It will not be visible in the course"
+        />
       )}
       <div className="p-6">
         <div className="flex items-center justify-between">
