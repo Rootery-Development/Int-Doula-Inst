@@ -2,10 +2,12 @@ datasource db {
   provider  = "postgresql"
   url       = env("DATABASE_URL")
   directUrl = env("DIRECT_URL")
+  relationMode = "prisma"
 }
         
 generator client {
   provider = "prisma-client-js"
+  previewFeatures = ["fullTextSearch", "fullTextIndex"]
 }
 
 model Course {
@@ -28,6 +30,8 @@ model Course {
   updatedAt DateTime @updatedAt
 
   @@index([categoryId])
+  // @@fulltext([title])  needs edit... apparently postgresql doesnt allow fulltext whereas MySQL does
+  @@index([title])
 }
 
 model Category {
