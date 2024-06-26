@@ -21,7 +21,7 @@ export async function POST(
         }
     })
 
-    
+
     return NextResponse.json(course)
   } catch (error) {
     console.log("[COURSES]", error);

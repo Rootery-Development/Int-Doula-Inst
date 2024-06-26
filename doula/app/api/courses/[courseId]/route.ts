@@ -81,7 +81,7 @@ export async function PATCH(
     });
     return NextResponse.json(course);
   } catch (error) {
-    console.log("[COURSEID]", error);
+    console.log("[COURSE_ID]", error);
     return new NextResponse("Internal Error", { status: 500 });
   }
 }

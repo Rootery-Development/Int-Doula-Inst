@@ -4,11 +4,11 @@ import { File } from "lucide-react";
 
 import { getChapter } from "@/actions/get-chapter";
 import { Banner } from "@/components/banner";
-// import { Separator } from "@/components/ui/separator"; edit
+import { Separator } from "@/components/ui/separator"; 
 import { Preview } from "@/components/preview";
 
 import { VideoPlayer } from "./_components/video-player";
-// import { CourseEnrollButton } from "./_components/course-enroll-button";
+import { CourseEnrollButton } from "./_components/course-enroll-button";
 // import { CourseProgressButton } from "./_components/course-progress-button";
 
 const ChapterIdPage = async ({
@@ -86,20 +86,19 @@ const ChapterIdPage = async ({
                 
             </div>
             ) : (
-            //   <CourseEnrollButton
-            //     courseId={params.courseId}
-            //     price={course.price!}
-            //   />
-            <div></div>
+              <CourseEnrollButton
+                courseId={params.courseId}
+                price={course.price!}
+              />
             )}
           </div>
-          {/* <Separator /> */}
+          <Separator />
           <div>
             <Preview value={chapter.description!} />
           </div>
           {!!attachments.length && (
             <>
-              {/* <Separator /> */}
+              <Separator />
               <div className="p-4">
                 {attachments.map((attachment) => (
                   <a 
