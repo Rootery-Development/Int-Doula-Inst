@@ -37,12 +37,12 @@ const ChapterIdPage = async ({
   });
 
   if (!chapter || !course) {
-    return redirect("/")
+    return redirect("/") //i gotta edit redirect to be set to "/"
   }
 
 
   const isLocked = !chapter.isFree && !purchase;
-//   const completeOnEnd = !!purchase && !userProgress?.isCompleted;
+  const completeOnEnd = !!purchase && !userProgress?.isCompleted;
 
   return ( 
     <div>
@@ -67,7 +67,7 @@ const ChapterIdPage = async ({
             nextChapterId={nextChapter?.id}
             playbackId={muxData?.playbackId!}
             isLocked={isLocked}
-            completeOnEnd={/*completeOnEnd edit */ true}
+            completeOnEnd={completeOnEnd}
           />
         </div>
         <div>

@@ -16,14 +16,14 @@ export const getChapter = async ({
 }: getChapterProps) => {
     try {
 
-        // const purchase = await db.purchase.findUnique({
-        //     where: {
-        //         userId_courseId: { 
-        //             userId,
-        //             courseId,
-        //         },
-        //     }
-        // });
+        const purchase = await db.purchase.findUnique({
+            where: {
+                userId_courseId: { 
+                    userId,
+                    courseId,
+                },
+            }
+        });
 
         const course = await db.course.findUnique({
             where: {
@@ -50,7 +50,7 @@ export const getChapter = async ({
         let attachments: Attachment[] = [];
         let nextChapter: Chapter | null = null;
 
-        if (true /*purchase*/) {
+        if (purchase) {
             attachments = await db.attachment.findMany({
                 where: {
                     courseId: courseId,
@@ -58,7 +58,7 @@ export const getChapter = async ({
             });
         }
 
-        if (chapter.isFree || true /*purchase*/ ) {
+        if (chapter.isFree || purchase ) {
             muxData = await db.muxData.findUnique({
                 where: {
                     chapterId: chapterId,
@@ -95,7 +95,7 @@ export const getChapter = async ({
             attachments,
             nextChapter,
             userProgress,
-            // purchase, 
+            purchase, 
         };
 
     } catch (error) {

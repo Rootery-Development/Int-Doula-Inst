@@ -7,9 +7,9 @@ import { toast } from "react-hot-toast";
 import { useRouter } from "next/navigation";
 import { Loader2, Lock } from "lucide-react";
 
-// import { cn } from "@/lib/utils"; edit ... this doesnt wanna import and idk why
+import { cn } from "@/lib/utils"; 
 import React from "react";
-// import { useConfettiStore } from "@/hooks/use-confetti-store";
+import { useConfettiStore } from "@/hooks/use-confetti-store";
 
 interface VideoPlayerProps {
     playbackId?: string | null;
@@ -32,7 +32,7 @@ export const VideoPlayer = ({
 }: VideoPlayerProps) => {
     const [isReady, setIsReady] = useState(false);
     const router = useRouter();
-    // const confetti = useConfettiStore();
+    const confetti = useConfettiStore();
 
     const onEnd = async () => {
         try {
@@ -42,7 +42,7 @@ export const VideoPlayer = ({
                 });
 
                 if (!nextChapterId) {
-                    // confetti.onOpen();
+                    confetti.onOpen();
                 }
 
                 toast.success("Progress updated");
@@ -75,9 +75,9 @@ export const VideoPlayer = ({
             {!isLocked && playbackId && (
                 <MuxPlayer
                     title={title}
-                    // className={cn(
-                    //     !isReady && "hidden"
-                    // )} edit
+                    className={cn(
+                        !isReady && "hidden"
+                    )} 
                     onCanPlay={() => setIsReady(true)}
                     onEnded={onEnd}
                     autoPlay

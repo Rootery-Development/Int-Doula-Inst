@@ -5,10 +5,9 @@ import { db } from "@/lib/db";
 
 import { getProgress } from "@/actions/get-progress";
 
-// edit
 import { CourseSidebar } from "./_components/course-sidebar";
 import { CourseNavbar } from "./_components/course-navbar";
-// import getSafeProfile from "@/actions/get-safe-profile";
+// import getSafeProfile from "@/actions/get-safe-profile"; edit
 
 const CourseLayout = async ({
   children,
@@ -63,7 +62,7 @@ const CourseLayout = async ({
         <CourseNavbar
           course={course}
           progressCount={progressCount}
-        //   currentProfile={safeProfile} 
+        //   currentProfile={safeProfile} edit
         />  
       </div>
       <div className="hidden md:flex h-full w-80 flex-col fixed inset-y-0 z-50">
