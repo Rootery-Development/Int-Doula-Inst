@@ -20,8 +20,10 @@ import {
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { Input } from "@/components/ui/input";
-import { Chapter, Course } from "@prisma/client";
 import { ChaptersList } from "./chapters-list";
+
+import { Course, Chapter } from "@prisma/client";
+
 // import { ChaptersList } from "./chapters-list";
 
 interface ChaptersFormProps {
