@@ -48,8 +48,6 @@ const CourseLayout = async ({
     },
   });
 
-  console.log(course)
-
   if (!course) {
     return redirect("/");
   }

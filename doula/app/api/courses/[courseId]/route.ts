@@ -3,6 +3,7 @@ import { auth } from "@clerk/nextjs/server";
 import { NextResponse } from "next/server";
 
 import { db } from "@/lib/db";
+import { isTeacher } from "@/lib/teacher";
 
 const { video } = new Mux({
   tokenId: process.env.MUX_TOKEN_ID!,
@@ -16,14 +17,14 @@ export async function DELETE(
   try {
     const { userId } = auth();
 
-    if (!userId) {
+    if (!userId || isTeacher(userId)) {
       return new NextResponse("Unauthorized", { status: 401 });
     }
 
     const course = await db.course.findUnique({
       where: {
         id: params.courseId,
-        // userId: userId,
+        userId: userId,
       },
       include: {
         chapters: {
@@ -66,7 +67,7 @@ export async function PATCH(
     const { courseId } = params;
     const values = await req.json();
 
-    if (!userId) {
+    if (!userId || isTeacher(userId)) {
       return new NextResponse("Unauthorized", { status: 401 });
     }
 

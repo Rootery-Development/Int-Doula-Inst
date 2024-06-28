@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "postinstall": "prisma generate"
   },
   "prisma": {
     "schema": "./prisma/schema.prisma"
@@ -51,6 +52,7 @@
     "react-hot-toast": "^2.4.1",
     "react-icons": "^5.2.1",
     "react-quill": "^2.0.0",
+    "recharts": "^2.12.7",
     "stripe": "^16.0.0",
     "tailwind-merge": "^2.3.0",
     "tailwindcss": "3.4.4",
