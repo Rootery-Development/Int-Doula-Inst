@@ -48,6 +48,6 @@ export const Chart = ({
                     />
                 </BarChart>
             </ResponsiveContainer>
-        </Card>
-    )
+        </Card>
+    )
 }

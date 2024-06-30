@@ -8,11 +8,13 @@ export async function POST(
 ) {
   try {
     const { userId } = auth();
+    console.log(userId)
     const { url, originalFilename } = await req.json();
 
     console.log("COURSE_ID_ATTACHMENTS", url, params.courseId);
 
     if (!userId) {
+      console.log("they didnt get the user")
       return new NextResponse("Unauthorized", { status: 401 });
     }
 

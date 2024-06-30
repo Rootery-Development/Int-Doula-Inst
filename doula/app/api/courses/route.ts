@@ -2,6 +2,7 @@ import { auth } from "@clerk/nextjs/server";
 import { NextResponse } from "next/server";
 
 import { db } from "@/lib/db";
+import { redirect } from "next/navigation";
 import { isTeacher } from "@/lib/teacher";
 
 export async function POST(
@@ -11,7 +12,7 @@ export async function POST(
     const { userId } = auth();
     const { title } = await req.json();
 
-    if (!userId || !isTeacher(userId) ) {
+    if (!userId  || !isTeacher(userId)  || !title) {
       return new NextResponse("Unauthorized", { status: 401 });
     }
 
