@@ -4,6 +4,7 @@ import { NextResponse } from "next/server";
 
 import { stripe } from "@/lib/stripe";
 import { db } from "@/lib/db";
+import { redirect } from "next/navigation";
 
 export async function POST(req: Request) {
   const body = await req.text();
@@ -30,16 +31,19 @@ export async function POST(req: Request) {
       return new NextResponse(`Webhook Error: Missing metadata`, {status: 400,});
     }
 
+    console.log('we boutta make a purchase record.')
     await db.purchase.create({
-          data: {
-            courseId: courseId,
-            userId: userId,
-          }
+      data: {
+        courseId: courseId,
+        userId: userId,
+      }
         });
   } else {
+    console.log('not completed lol')
     return new NextResponse(`Webhook Error: Unhandled event type ${event.type}`, { status: 200 })
   }
-  
+
+  // redirect('/course')
   return new NextResponse(null, { status: 200 });
 
 }

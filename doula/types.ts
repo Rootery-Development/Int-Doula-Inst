@@ -1,4 +1,4 @@
-import { Category, Course, /*Profile edit*/ } from "@prisma/client";
+import { Category, Course, Profile } from "@prisma/client";
 
 export type CourseWithProgressWithCategory = Course & {
     category: Category | null;
@@ -7,7 +7,7 @@ export type CourseWithProgressWithCategory = Course & {
 };
 
 export type SafeProfile = Omit<
-  `Profile edit`,
+  Profile,
   "createdAt" | "updatedAt" 
 > & {
   createdAt: string;
