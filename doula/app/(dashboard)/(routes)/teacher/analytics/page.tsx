@@ -2,13 +2,8 @@ import { auth } from '@clerk/nextjs/server'
 import { redirect } from 'next/navigation';
 
 import { getAnalytics } from '@/actions/get-analytics';
-<<<<<<< HEAD
-import { DataCard } from './_componenets/data-card';
-import { Chart } from './_componenets/chart';
-=======
 import { DataCard } from './_components/data-card';
 import { Chart } from './_components/chart';
->>>>>>> bed8e42685e04bfc762b90005269364cff930fee
 
 const AnalyticsPage = async () => {
 
@@ -43,8 +38,4 @@ const AnalyticsPage = async () => {
   )
 }
 
-<<<<<<< HEAD
-export default AnalyticsPage;
-=======
 export default AnalyticsPage;
->>>>>>> bed8e42685e04bfc762b90005269364cff930fee

@@ -22,6 +22,6 @@ export const DataCard = ({
           {shouldFormat ? formatPrice(value) : value}
         </div>
       </CardContent>
-    </Card>
-  );
+    </Card>
+  );
 };
