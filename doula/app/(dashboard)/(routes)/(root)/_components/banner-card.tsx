@@ -29,6 +29,6 @@ export const BannerCard = ({
           { description }
         </p>
       </div>
-    </div>
-  )
+  </div>
+  )
 }

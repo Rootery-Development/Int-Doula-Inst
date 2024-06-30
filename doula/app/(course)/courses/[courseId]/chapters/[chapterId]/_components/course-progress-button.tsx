@@ -63,6 +63,6 @@ export const CourseProgressButton = ({
     >
       {isCompleted ? "Not completed" : "Mark as complete"}
       <Icon className="h-4 w-4 ml-2" />
-    </Button>
-  )
+    </Button>
+ )
 }
