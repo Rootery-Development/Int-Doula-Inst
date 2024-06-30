@@ -48,6 +48,12 @@ export default async function Dashboard() {
       <CoursesList
         items={[...coursesInProgress, ...completedCourses]}
       />
+<<<<<<< HEAD
     </div>
   )
 }
+=======
+    </div>
+  )
+}
+>>>>>>> bed8e42685e04bfc762b90005269364cff930fee

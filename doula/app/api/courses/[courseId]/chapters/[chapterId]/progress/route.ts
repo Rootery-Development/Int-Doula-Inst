@@ -35,6 +35,12 @@ export async function PUT(
     return NextResponse.json(userProgress);
   } catch (error) {
     console.log("[CHAPTER_ID_PROGRESS]", error);
+<<<<<<< HEAD
     return new NextResponse("Internal Error", { status: 500 });
   }
 }
+=======
+    return new NextResponse("Internal Error", { status: 500 });
+  }
+}
+>>>>>>> bed8e42685e04bfc762b90005269364cff930fee
