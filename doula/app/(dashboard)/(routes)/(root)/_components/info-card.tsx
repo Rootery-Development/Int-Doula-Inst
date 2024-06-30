@@ -29,6 +29,11 @@ export const InfoCard = ({
           {numberOfItems} {numberOfItems === 1 ? "Course" : "Courses"}
         </p>
       </div>
+<<<<<<< HEAD
+    </div>
+  )
+=======
     </div>
   )
+>>>>>>> bed8e42685e04bfc762b90005269364cff930fee
 }

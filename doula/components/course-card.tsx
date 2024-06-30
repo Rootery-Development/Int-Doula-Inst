@@ -51,6 +51,10 @@ export const CourseCard = ({
                 size="sm"
                 value={progress}
               />
+<<<<<<< HEAD
+
+=======
+>>>>>>> bed8e42685e04bfc762b90005269364cff930fee
             </div>
           ) : (
             <p className="text-md md:text-sm font-medium text-slate-700">
