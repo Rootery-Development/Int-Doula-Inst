@@ -74,3 +74,15 @@
       @apply bg-background text-foreground;
     }
   }
+
+  .nav-color{
+    background-color: #848671;
+  }
+
+  .sidebar-color{
+    background-color: #666E62;
+  }
+
+  .main-bg{
+    background-color: #A8A195;
+  }
